@@ -24,7 +24,7 @@ import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.squareup.picasso.Picasso;
-import com.viven.imagezoom.ImageZoomHelper;
+
 
 import java.util.List;
 
@@ -33,7 +33,6 @@ public class DetailActivity extends AppCompatActivity {
 
     private MovieDBAPIService movieService;
     private static final String BASE_URL_IMG = "https://image.tmdb.org/t/p/w500";
-    ImageZoomHelper imageZoomHelper;
 
     @BindView(R.id.single_item_movie_title)
     TextView singleItemMovieTitle;
@@ -66,14 +65,9 @@ public class DetailActivity extends AppCompatActivity {
         movieService = MovieDBAPI.getClient().create(MovieDBAPIService.class);
         Intent intent = getIntent();
         loadDetails(intent.getStringExtra("movieId"));
-        imageZoomHelper = new ImageZoomHelper(this);
-        ImageZoomHelper.setViewZoomable(findViewById(R.id.single_item_movie_image));
+
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return imageZoomHelper.onDispatchTouchEvent(ev) || super.dispatchTouchEvent(ev);
-    }
 
     private void loadDetails(String id) {
 
