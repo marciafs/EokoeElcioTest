@@ -25,15 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.activities.DetailActivity">
 
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -171,6 +169,22 @@
 
                     </LinearLayout>
 
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/single_item_button_view"
+                    style="@style/CardView.Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="8dp">
+
+                    <Button
+                        android:id="@+id/reviews_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="callReviews"
+                        android:text="Reviews" />
                 </androidx.cardview.widget.CardView>
 
 

@@ -16,7 +16,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -33,6 +35,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private MovieDBAPIService movieService;
     private static final String BASE_URL_IMG = "https://image.tmdb.org/t/p/w500";
+    private String movieId;
 
     @BindView(R.id.single_item_movie_title)
     TextView singleItemMovieTitle;
@@ -64,6 +67,7 @@ public class DetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         movieService = MovieDBAPI.getClient().create(MovieDBAPIService.class);
         Intent intent = getIntent();
+        movieId = intent.getStringExtra("movieId");
         loadDetails(intent.getStringExtra("movieId"));
 
     }
@@ -153,4 +157,9 @@ public class DetailActivity extends AppCompatActivity {
         return true;
     }
 
+    public void callReviews(View view){
+        Intent intent = new Intent(this, ReviewActivity.class);
+        intent.putExtra("movieId",movieId);
+        startActivity(intent);
+    }
 }
