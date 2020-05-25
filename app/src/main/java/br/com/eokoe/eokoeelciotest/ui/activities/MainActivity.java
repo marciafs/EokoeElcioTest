@@ -13,14 +13,20 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.shashank.sony.fancygifdialoglib.FancyGifDialog;
-import com.shashank.sony.fancygifdialoglib.FancyGifDialogListener;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.shashank.sony.fancygifdialoglib.FancyGifDialog;
+import com.shashank.sony.fancygifdialoglib.FancyGifDialogListener;
+
+import java.util.List;
+import java.util.concurrent.TimeoutException;
+
 import br.com.eokoe.eokoeelciotest.R;
 import br.com.eokoe.eokoeelciotest.domian.api.MovieDBAPI;
 import br.com.eokoe.eokoeelciotest.domian.api.MovieDBAPIService;
@@ -34,8 +40,6 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import java.util.List;
-import java.util.concurrent.TimeoutException;
 
 public class MainActivity extends AppCompatActivity implements PaginationAdapterCallback, PaginationAdapter.OnItemClickListener {
 
@@ -44,11 +48,16 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
     PaginationAdapter adapter;
     LinearLayoutManager linearLayoutManager;
 
-    @BindView(R.id.main_recycler) RecyclerView rv;
-    @BindView(R.id.main_progress) ProgressBar progressBar;
-    @BindView(R.id.error_layout) LinearLayout errorLayout;
-    @BindView(R.id.error_btn_retry) Button btnRetry;
-    @BindView(R.id.error_txt_cause) TextView txtError;
+    @BindView(R.id.main_recycler)
+    RecyclerView rv;
+    @BindView(R.id.main_progress)
+    ProgressBar progressBar;
+    @BindView(R.id.error_layout)
+    LinearLayout errorLayout;
+    @BindView(R.id.error_btn_retry)
+    Button btnRetry;
+    @BindView(R.id.error_txt_cause)
+    TextView txtError;
 
     private static final int PAGE_START = 1;
 
@@ -83,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
             @Override
             protected void loadMoreItems() {
 
-                if(adapter.canReload()){
+                if (adapter.canReload()) {
                     isLoading = true;
                     currentPage += 1;
                     loadNextPage();
@@ -253,8 +262,8 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
 
     @Override
     public void onClick(View view, Result item) {
-        Intent intent = new Intent(this,DetailActivity.class);
-        intent.putExtra("movieId",""+item.getId());
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("movieId", "" + item.getId());
         startActivity(intent);
 
     }
@@ -262,7 +271,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
 
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -287,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
         });
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -294,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
             return true;
         }
 
-        if (id == R.id.action_about){
+        if (id == R.id.action_about) {
 
             new FancyGifDialog.Builder(this)
                     .setTitle("Elcio Abrahão, November/2018, Eokoe")

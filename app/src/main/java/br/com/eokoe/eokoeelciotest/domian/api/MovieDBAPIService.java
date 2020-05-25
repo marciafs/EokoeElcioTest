@@ -2,7 +2,11 @@ package br.com.eokoe.eokoeelciotest.domian.api;
 
 import br.com.eokoe.eokoeelciotest.domian.model.Detail;
 import br.com.eokoe.eokoeelciotest.domian.model.Popular;
+<<<<<<< Updated upstream
 
+=======
+import br.com.eokoe.eokoeelciotest.domian.model.Review;
+>>>>>>> Stashed changes
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

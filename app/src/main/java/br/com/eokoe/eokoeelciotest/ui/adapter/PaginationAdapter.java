@@ -1,7 +1,6 @@
 package br.com.eokoe.eokoeelciotest.ui.adapter;
 
 
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +12,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import br.com.eokoe.eokoeelciotest.R;
 import br.com.eokoe.eokoeelciotest.domian.model.Result;
 import butterknife.BindView;
@@ -62,7 +65,7 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     }
 
-    public boolean canReload(){
+    public boolean canReload() {
         return reload;
     }
 
@@ -162,7 +165,7 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount() {
 
-        if(movieResults != null){
+        if (movieResults != null) {
             return movieResults.size();
         } else {
             return 0;
@@ -202,7 +205,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-
     public void add(Result r) {
         movieResults.add(r);
         notifyItemInserted(movieResults.size() - 1);
@@ -216,12 +218,12 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         copyData();
     }
 
-    public void copyData(){
+    public void copyData() {
         movieResultsBackup.clear();
         movieResultsBackup.addAll(movieResults);
     }
 
-    public void restoreData(){
+    public void restoreData() {
         movieResults.clear();
         movieResults.addAll(movieResultsBackup);
     }
@@ -280,11 +282,15 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     /**
      * Header ViewHolder
      */
-    protected class HeroVH extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @BindView(R.id.movie_title) TextView mMovieTitle;
-        @BindView(R.id.movie_desc) TextView mMovieDesc;
-        @BindView(R.id.movie_year) TextView mYear;
-        @BindView(R.id.movie_poster) ImageView mPosterImg;
+    protected class HeroVH extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.movie_title)
+        TextView mMovieTitle;
+        @BindView(R.id.movie_desc)
+        TextView mMovieDesc;
+        @BindView(R.id.movie_year)
+        TextView mYear;
+        @BindView(R.id.movie_poster)
+        ImageView mPosterImg;
 
         public HeroVH(View itemView) {
             super(itemView);
@@ -302,12 +308,17 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     /**
      * Main list's content ViewHolder
      */
-    protected class MovieVH extends RecyclerView.ViewHolder implements View.OnClickListener{
-        @BindView(R.id.movie_title) TextView mMovieTitle;
-        @BindView(R.id.movie_desc) TextView mMovieDesc;
-        @BindView(R.id.movie_year) TextView mYear;
-        @BindView(R.id.movie_poster) ImageView mPosterImg;
-        @BindView(R.id.movie_progress) ProgressBar mProgress;
+    protected class MovieVH extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.movie_title)
+        TextView mMovieTitle;
+        @BindView(R.id.movie_desc)
+        TextView mMovieDesc;
+        @BindView(R.id.movie_year)
+        TextView mYear;
+        @BindView(R.id.movie_poster)
+        ImageView mPosterImg;
+        @BindView(R.id.movie_progress)
+        ProgressBar mProgress;
 
         public MovieVH(final View itemView) {
             super(itemView);
@@ -323,10 +334,14 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
 
     protected class LoadingVH extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.loadmore_progress) ProgressBar mProgressBar;
-        @BindView(R.id.loadmore_retry) ImageButton mRetryBtn;
-        @BindView(R.id.loadmore_errortxt) TextView mErrorTxt;
-        @BindView(R.id.loadmore_errorlayout) LinearLayout mErrorLayout;
+        @BindView(R.id.loadmore_progress)
+        ProgressBar mProgressBar;
+        @BindView(R.id.loadmore_retry)
+        ImageButton mRetryBtn;
+        @BindView(R.id.loadmore_errortxt)
+        TextView mErrorTxt;
+        @BindView(R.id.loadmore_errorlayout)
+        LinearLayout mErrorLayout;
 
         public LoadingVH(View itemView) {
             super(itemView);

@@ -6,4 +6,4 @@ public interface PaginationAdapterCallback {
 
     void onClickItem(int position);
 
-  }
+}

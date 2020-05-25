@@ -6,8 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class Popular implements Serializable
-{
+public class Popular implements Serializable {
 
     @SerializedName("page")
     @Expose

@@ -14,7 +14,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class ApiServiceUnitTest {
@@ -22,7 +23,7 @@ public class ApiServiceUnitTest {
     MovieDBAPIService service;
 
     @Before
-    public void getService(){
+    public void getService() {
         service = MovieDBAPI.getClient().create(MovieDBAPIService.class);
     }
 
@@ -36,7 +37,7 @@ public class ApiServiceUnitTest {
 
                 List<Result> results = response.body().getResults();
 
-                assertNotEquals(0,results.size());
+                assertNotEquals(0, results.size());
 
             }
 
@@ -54,7 +55,7 @@ public class ApiServiceUnitTest {
             @Override
             public void onResponse(Call<Detail> call, Response<Detail> response) {
                 Detail detail = response.body();
-                assertEquals("The Grinch",detail.getTitle());
+                assertEquals("The Grinch", detail.getTitle());
             }
 
             @Override

@@ -1,8 +1,23 @@
 package br.com.eokoe.eokoeelciotest.ui.activities;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.bumptech.glide.DrawableRequestBuilder;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
 import br.com.eokoe.eokoeelciotest.R;
 import br.com.eokoe.eokoeelciotest.domian.api.MovieDBAPI;
 import br.com.eokoe.eokoeelciotest.domian.api.MovieDBAPIService;
@@ -14,6 +29,7 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+<<<<<<< Updated upstream
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -27,6 +43,8 @@ import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
+=======
+>>>>>>> Stashed changes
 
 
 public class DetailActivity extends AppCompatActivity {
@@ -79,9 +97,9 @@ public class DetailActivity extends AppCompatActivity {
                 singleItemMovieTitle.setText(results.getTitle());
                 singleItemMovieType.setText(formatGenres(results.getGenres()));
                 singleItemMovieReleaseDate.setText(results.getReleaseDate());
-                singleItemMovieRating.setRating((results.getVoteAverage().floatValue())/2);
+                singleItemMovieRating.setRating((results.getVoteAverage().floatValue()) / 2);
                 singleItemMovieOverview.setText(results.getOverview());
-                singleItemMovieLanguage.setText("Original Language: "+results.getOriginalLanguage());
+                singleItemMovieLanguage.setText("Original Language: " + results.getOriginalLanguage());
                 singleItemMovieTagline.setText(results.getTagline());
                 singleItemMovieProdutors.setText(formatProdutors(results.getProductionCompanies()));
 
@@ -113,7 +131,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void showErrorView(Throwable throwable) {
 
-            // todo show allert error
+        // todo show allert error
     }
 
     private DrawableRequestBuilder<String> loadImage(@NonNull String posterPath) {
@@ -125,24 +143,24 @@ public class DetailActivity extends AppCompatActivity {
                 .crossFade();
     }
 
-    private String formatGenres(List<Genre> list){
-        String s="";
-        for(Genre genre: list){
-            if(!s.isEmpty()){
-                s+="/";
+    private String formatGenres(List<Genre> list) {
+        String s = "";
+        for (Genre genre : list) {
+            if (!s.isEmpty()) {
+                s += "/";
             }
-            s+=genre.getName();
+            s += genre.getName();
         }
         return s;
     }
 
-    private String formatProdutors(List<ProductionCompany> list){
-        String s="";
-        for(ProductionCompany productionCompany: list){
-            if(!s.isEmpty()){
-                s+="/";
+    private String formatProdutors(List<ProductionCompany> list) {
+        String s = "";
+        for (ProductionCompany productionCompany : list) {
+            if (!s.isEmpty()) {
+                s += "/";
             }
-            s+=productionCompany.getName();
+            s += productionCompany.getName();
         }
         return s;
     }
@@ -153,4 +171,12 @@ public class DetailActivity extends AppCompatActivity {
         return true;
     }
 
+<<<<<<< Updated upstream
+=======
+    public void callReviews(View view) {
+        Intent intent = new Intent(this, ReviewActivity.class);
+        intent.putExtra("movieId", movieId);
+        startActivity(intent);
+    }
+>>>>>>> Stashed changes
 }

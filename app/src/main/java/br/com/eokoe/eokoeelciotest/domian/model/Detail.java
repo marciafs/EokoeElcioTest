@@ -1,12 +1,12 @@
 package br.com.eokoe.eokoeelciotest.domian.model;
 
-import java.io.Serializable;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Detail implements Serializable
-{
+import java.io.Serializable;
+import java.util.List;
+
+public class Detail implements Serializable {
 
     @SerializedName("adult")
     @Expose

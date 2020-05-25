@@ -11,7 +11,7 @@ public class MovieDBAPI {
     private final static String BASE_URL = "https://api.themoviedb.org/";
 
     private static Retrofit retrofit = null;
-    public static final String publicKey="db48750120ce232724d39ff03b3db81e";
+    public static final String publicKey = "db48750120ce232724d39ff03b3db81e";
 
     private static OkHttpClient buildClient() {
         return new OkHttpClient

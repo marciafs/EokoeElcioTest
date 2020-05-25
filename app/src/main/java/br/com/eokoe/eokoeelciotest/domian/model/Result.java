@@ -6,8 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 
-public class Result implements Serializable
-{
+public class Result implements Serializable {
 
     @SerializedName("vote_count")
     @Expose

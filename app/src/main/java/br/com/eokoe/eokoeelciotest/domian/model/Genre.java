@@ -1,11 +1,11 @@
 package br.com.eokoe.eokoeelciotest.domian.model;
 
-import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Genre implements Serializable
-{
+import java.io.Serializable;
+
+public class Genre implements Serializable {
 
     @SerializedName("id")
     @Expose
